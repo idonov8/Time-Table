@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+       <iframe src="https://docs.google.com/spreadsheets/d/1kRQ3Cn_geuZDT9rC0paEUxGLp1559e0ydJ4mfOTSGvE/edit?usp=sharing" style="height:600px;width:100%;"></iframe>
+        <form>
+        <input type="submit" name="run" method='POST' value="RUN CODE!">
+    </form>
+
+</center>
+
+<script type="text/javascript">// <![CDATA[
+        function preloader(){
+           {% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+	{% for message in messages %}
+	
+		alert('{{message}}')
+
+	{% endfor %}
+	{% endif %}
+{% endwith %} 
+        }
+        //preloader
+        window.onload = preloader;
+// ]]></script>
+</body>
+</html>
