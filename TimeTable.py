@@ -56,20 +56,14 @@ def get_calendar_credentials():
     return credentials
 
 def get_sheet():
-
   scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
   creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_secret.json', scope)
   client = gspread.authorize(creds)
   print("sheets creds collected")
   sheet = client.open('Time Table').sheet1
-
   return sheet
+  
 def main():
-    """Shows basic usage of the Google Calendar API.
-
-    Creates a Google Calendar API CAL object and outputs a list of the next
-    10 events on the user's calendar.
-    """
     credentials = get_calendar_credentials()
     http = credentials.authorize(httplib2.Http())
     CAL = discovery.build('calendar', 'v3', http=http)
@@ -119,9 +113,6 @@ def main():
                 End:   %s''' % (e['summary'].encode('utf-8'),
                     e['start']['dateTime'], e['end']['dateTime']))
             print(x)
-
-
-
 
 if __name__ == '__main__':
     main()
