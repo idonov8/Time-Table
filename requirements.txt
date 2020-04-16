@@ -1,3 +1,4 @@
+pycurl==7.19.3.1
 apiclient==1.0.4
 appscript==1.0.1
 asn1crypto==1.0.1
