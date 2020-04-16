@@ -22,10 +22,6 @@ Bottleneck==1.2.1
 cachetools==4.1.0
 certifi==2019.3.9
 cffi==1.14.0
-conda==4.7.12
-conda-build==3.18.9
-conda-package-handling==1.6.0
-conda-verify==3.4.2
 contextlib2==0.6.0
 cryptography==2.8
 cycler==0.10.0
