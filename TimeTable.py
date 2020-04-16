@@ -49,22 +49,22 @@ def get_calendar_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-def get_sheet():
+def get_sheet(worksheet):
   scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
   creds = ServiceAccountCredentials.from_json_keyfile_name('sheets_secret.json', scope)
   client = gspread.authorize(creds)
   print("sheets creds collected")
-  sheet = client.open('Time Table').sheet1
+  sheet = client.open('Time Table').get_worksheet(worksheet-1)
   return sheet
   
-def main():
+def main(worksheet):
     credentials = get_calendar_credentials()
     http = credentials.authorize(httplib2.Http())
     CAL = discovery.build('calendar', 'v3', http=http)
 
     GMT_OFF = '+03:00'
     print('calendar creds collected')
-    sheet = get_sheet()
+    sheet = get_sheet(worksheet)
     print("got the sheet")
     x = 0
 
